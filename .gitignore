@@ -1,0 +1,43 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ML artifacts
+*.pkl
+*.joblib
+*.pt
+*.pth
+
+# Large datasets
+data/raw/*
+data/processed/*
+data/synthetic/*.csv
+
+# Logs
+*.log
+
+# Node
+node_modules/
+dist/
+build/
