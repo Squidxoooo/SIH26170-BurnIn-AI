@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from app.schemas.common import APIResponse
-from app.services.analysis_service import AnalysisService
+from backend.schemas.common import APIResponse
+from backend.services.analysis_service import AnalysisService
 router = APIRouter()
 service = AnalysisService()
 @router.get("/health", response_model=APIResponse)

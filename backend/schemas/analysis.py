@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 class ComponentInput(BaseModel):
     component_id: str
     lot_id: Optional[str] = None
-    values: Dict[str, float] = Field(default_factory=dict)
+    values: Dict[str, Any] = Field(default_factory=dict)
     specification_limit: Optional[float] = None
 
 class AnalysisResult(BaseModel):

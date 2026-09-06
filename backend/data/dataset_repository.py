@@ -3,7 +3,7 @@ from functools import lru_cache
 from pathlib import Path
 import pandas as pd
 
-from app.core.config import settings
+from backend.core.config import settings
 
 
 class DatasetRepository:

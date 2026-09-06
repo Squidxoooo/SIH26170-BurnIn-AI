@@ -11,7 +11,7 @@ import pandas as pd
 # Permit `python training/train_drift.py ...` from the backend root.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from sklearn.model_selection import GroupShuffleSplit
-from app.ml.drift.predictor import DriftPredictor
+from backend.ml.drift.predictor import DriftPredictor
 
 def main():
     p=argparse.ArgumentParser()

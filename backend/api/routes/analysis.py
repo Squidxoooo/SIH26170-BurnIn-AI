@@ -1,7 +1,7 @@
 from fastapi import APIRouter
-from app.schemas.analysis import ComponentInput
-from app.schemas.common import APIResponse
-from app.services.analysis_service import AnalysisService
+from backend.schemas.analysis import ComponentInput
+from backend.schemas.common import APIResponse
+from backend.services.analysis_service import AnalysisService
 router = APIRouter()
 service = AnalysisService()
 @router.post("/analyze/component", response_model=APIResponse)

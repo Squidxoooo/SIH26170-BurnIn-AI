@@ -1,6 +1,6 @@
 from pathlib import Path
 import pandas as pd
-from app.data.validator import validate_dataframe
+from backend.data.validator import validate_dataframe
 
 def load_csv(path: str):
     p = Path(path)

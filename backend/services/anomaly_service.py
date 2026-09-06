@@ -1,6 +1,6 @@
 import numpy as np
 import joblib
-from app.ml.anomaly.detector import IsolationForestDetector
+from backend.ml.anomaly.detector import IsolationForestDetector
 
 class AnomalyService:
     def __init__(self):

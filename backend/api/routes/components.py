@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from app.data.dataset_repository import DatasetRepository
+from backend.data.dataset_repository import DatasetRepository
 router = APIRouter()
 repository = DatasetRepository()
 @router.get("/components/{component_id}")
