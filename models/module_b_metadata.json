@@ -1,0 +1,29 @@
+{
+  "model": "HistGradientBoosting",
+  "features": [
+    "ambient_temp_C",
+    "burn_in_temp_C",
+    "humidity_pct",
+    "leakage_0h_uA",
+    "leakage_24h_uA",
+    "propagation_delay_0h_ns",
+    "propagation_delay_24h_ns",
+    "device_family",
+    "chamber_id"
+  ],
+  "targets": [
+    "leakage_168h_uA",
+    "propagation_delay_168h_ns"
+  ],
+  "test_batches": [
+    "B09",
+    "B10",
+    "B11",
+    "B20"
+  ],
+  "prediction_horizon_hours": 168,
+  "last_observed_hour": 24,
+  "forecast_window_hours": 144,
+  "primary_metric": "overall_mae",
+  "leakage_protected": true
+}

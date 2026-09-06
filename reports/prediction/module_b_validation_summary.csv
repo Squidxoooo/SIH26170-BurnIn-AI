@@ -1,0 +1,6 @@
+,value
+test_components,1989.0
+leakage_mae_uA,3.179407820797665
+leakage_rmse_uA,7.239011444129691
+delay_mae_ns,0.12577535915045246
+delay_rmse_ns,0.19367904808041594

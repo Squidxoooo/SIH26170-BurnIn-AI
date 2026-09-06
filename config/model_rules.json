@@ -1,31 +1,23 @@
 {
-  "description": "Prototype configuration for SIH26170. These are NOT official ISRO acceptance limits.",
-  "prediction_horizon_h": 168,
-  "early_observation_h": [
-    0,
-    24
+  "version": "validation-tuned-v1",
+  "anomaly_watch": 0.4,
+  "anomaly_high": 0.8,
+  "leakage_utilization_watch": 0.75,
+  "leakage_utilization_high": 0.9,
+  "leakage_slope_watch_uA_per_hour": 0.02,
+  "leakage_slope_high_uA_per_hour": 0.04,
+  "max_healthy_red_rate": 0.05,
+  "max_total_alert_rate": 0.6,
+  "validation_batches": [
+    "B06",
+    "B13",
+    "B17"
   ],
-  "safety_slope": {
-    "leakage_uA_per_hour": null,
-    "propagation_delay_ns_per_hour": null,
-    "method": "Set from an approved engineering/reliability rule or estimate from healthy TRAINING data only."
-  },
-  "anomaly_detection": {
-    "peer_group": [
-      "batch_id",
-      "device_family"
-    ],
-    "robust_z_formula": "0.6745 * (x - batch_median) / MAD",
-    "mad_zero_handling": "Use IQR or small epsilon fallback; never divide by zero."
-  },
-  "split_policy": {
-    "method": "grouped_by_batch",
-    "test_batches": [
-      "B09",
-      "B10",
-      "B11",
-      "B20"
-    ],
-    "reason": "Prevents same-lot leakage and tests generalization to unseen lots."
-  }
+  "final_test_batches": [
+    "B09",
+    "B10",
+    "B11",
+    "B20"
+  ],
+  "note": "Thresholds tuned on validation batches only. Slope thresholds are prototype engineering thresholds and are not official ISRO specifications."
 }

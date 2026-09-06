@@ -1,0 +1,9 @@
+,value
+total_components,10000
+total_columns,22
+duplicate_components,0
+missing_values,392
+healthy_components,7557
+defective_components,2443
+static_screen_failures,226
+latent_defects,2217
