@@ -1,47 +1,27 @@
-# SIH26170 — AI-Driven Anomaly Detection in Component Burn-In & Screening
+# SIH26170 Clean Dataset
 
-Smart India Hackathon 2026
+This package is the cleaned/structured data layer for the SIH26170 prototype.
 
-## Problem
+## Source data
+- `raw/components_raw.csv` — untouched wide-format component measurements.
+- `raw/timeseries_raw.csv` — untouched long-format measurements (0h/24h/96h/168h).
+- `raw/batch_metadata.csv` — batch/chamber/environment metadata.
+- `reference/data_dictionary.csv` — original data dictionary.
 
-Traditional component burn-in screening primarily relies on fixed parametric limits.
-This can allow components with subtle abnormal degradation patterns to pass screening
-while potentially containing latent defects.
+## ML-ready datasets
+- `processed/module_a_early_screening.csv` — only information available by 24h for peer-based anomaly detection.
+- `processed/module_b_regression.csv` — 0h/24h inputs and 168h targets, with a grouped train/test split.
+- `processed/evaluation_labels.csv` — benchmark labels; never use these as model inputs.
+- `processed/timeseries_serving.csv` — clean time-series data for backend/demo visualization without benchmark labels.
 
-## Proposed Solution
+## Important anti-leakage rules
+1. Never use `behavior_type`, `ground_truth_status`, or `static_screen_fail` as model features.
+2. Never use 96h/168h measurements as inputs to a model that predicts 168h.
+3. Never use 168h-derived slopes or 168h peer statistics for early screening.
+4. Split by `batch_id`, not random rows.
+5. Do not claim the synthetic labels/data are real ISRO telemetry.
+6. The safety slope is intentionally configurable and is NOT presented as an official ISRO threshold.
 
-We are developing an AI-powered burn-in screening system that:
-
-1. Detects components behaving abnormally relative to their lot.
-2. Predicts future parameter drift from early burn-in measurements.
-3. Compares predicted behaviour with engineering safety criteria.
-4. Produces an explainable risk assessment.
-
-## Core Modules
-
-### Module A — Anomaly Detection
-
-Identifies components whose behaviour is unusual compared with other components
-in the same lot.
-
-### Module B — Drift Prediction
-
-Uses early burn-in measurements to predict the component's future parameter value
-and evaluate its degradation trajectory.
-
-## System Pipeline
-
-Burn-in Data
-→ Preprocessing
-→ Anomaly Detection + Drift Prediction
-→ Risk Engine
-→ Explainable Result
-→ Dashboard
-
-## Project Status
-
-🚧 Under development
-
-## Team
-
-SIH26170 Team
+## Current grouped split
+Test batches: B09, B10, B11, B20.
+They cover MixedSignal, Analog, Logic, and Memory device families.

@@ -1,0 +1,30 @@
+column,meaning,example_or_formula
+component_id,Unique synthetic component identifier,C000001
+batch_id,Synthetic manufacturing/test lot; useful for within-lot comparison,B01
+device_family,Component family with a different normal baseline,Logic_IC
+chamber_id,Synthetic ESS/Burn-In chamber identifier,CH-02
+ambient_temp_C,Ambient temperature before testing,25.4
+burn_in_temp_C,Illustrative controlled Burn-In temperature,125
+humidity_pct,Illustrative chamber humidity,41.2
+leakage_0h_uA,Leakage current at 0 hours,10.2
+leakage_24h_uA,Leakage current at 24 hours,10.8
+leakage_96h_uA,Leakage current at 96 hours,12.1
+leakage_168h_uA,Leakage current at 168 hours; hide from Module B input during prediction,14.0
+leakage_static_limit_uA,Illustrative absolute limit for the prototype,50
+propagation_delay_0h_ns,Propagation delay at 0 hours,7.9
+propagation_delay_24h_ns,Propagation delay at 24 hours,8.0
+propagation_delay_96h_ns,Propagation delay at 96 hours,8.2
+propagation_delay_168h_ns,Propagation delay at 168 hours,8.4
+delay_static_limit_ns,Illustrative absolute delay limit,12
+behavior_type,Synthetic behavior pattern used to stress-test the ML system,GradualDrift
+ground_truth_status,"Synthetic benchmark label for model evaluation, not a real QA disposition",Healthy/Defective
+static_screen_fail,Whether an illustrative absolute limit is crossed,True/False
+leakage_delta_0_24,Leakage change between 0h and 24h,24h - 0h
+leakage_delta_24_96,Leakage change between 24h and 96h,96h - 24h
+leakage_delta_96_168,Leakage change between 96h and 168h,168h - 96h
+leakage_overall_slope_uA_per_hour,Average leakage drift rate over 168h,(168h - 0h) / 168
+delay_overall_slope_ns_per_hour,Average delay drift rate over 168h,(168h - 0h) / 168
+batch_median_leakage_*,Batch median for a specific leakage time point,batch statistic
+batch_MAD_leakage_*,Robust spread of the batch for a specific leakage time point,median absolute deviation
+leakage_vs_batch_median_ratio_*,Component value relative to its batch median,value / batch median
+leakage_robust_z_*,Robust standardized distance from the batch median,0.6745*(x-median)/MAD

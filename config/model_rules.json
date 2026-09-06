@@ -1,0 +1,31 @@
+{
+  "description": "Prototype configuration for SIH26170. These are NOT official ISRO acceptance limits.",
+  "prediction_horizon_h": 168,
+  "early_observation_h": [
+    0,
+    24
+  ],
+  "safety_slope": {
+    "leakage_uA_per_hour": null,
+    "propagation_delay_ns_per_hour": null,
+    "method": "Set from an approved engineering/reliability rule or estimate from healthy TRAINING data only."
+  },
+  "anomaly_detection": {
+    "peer_group": [
+      "batch_id",
+      "device_family"
+    ],
+    "robust_z_formula": "0.6745 * (x - batch_median) / MAD",
+    "mad_zero_handling": "Use IQR or small epsilon fallback; never divide by zero."
+  },
+  "split_policy": {
+    "method": "grouped_by_batch",
+    "test_batches": [
+      "B09",
+      "B10",
+      "B11",
+      "B20"
+    ],
+    "reason": "Prevents same-lot leakage and tests generalization to unseen lots."
+  }
+}
